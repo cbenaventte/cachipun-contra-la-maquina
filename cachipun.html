@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DesafioCachipun</title>
+    </head>
+    
+    <body>
+        <script>
+    
+            //Se solicita el número de juegos
+            var juegos = parseInt(prompt("Ingrese el número de juegos: "));
+            var contador = 0;
+    
+            while (contador < juegos) {
+    
+                var jugada_humano = prompt("Ingrese su jugada. Debe ser piedra, papel o tijera");//Solicita al usuario indique jugada
+    
+                var ganador = definirGanador(jugada_humano, jugadaMaquina())
+    
+                function jugadaMaquina() {
+                    var opcion = Math.floor(Math.random() * 3);
+                    switch (opcion) {
+                        case 0:
+                            return 'piedra';
+                            break;
+                        case 1:
+                            return 'papel';
+                            break;
+                        case 2:
+                            return 'tijera';
+                            break;
+                        default:
+                            return 'Error'
+                            break;
+                    }
+                }
+    
+                contador++;
+    
+                function definirGanador(jugadahumano, jugadamaquina) {
+    
+                    if (jugadahumano == 'piedra') {//el usuario eligio piedra 
+                        if (jugadamaquina == 'papel') {
+                            alert("¡Perdiste! La maquina eligio papel y tu piedra.");
+                            //document.write("<h1>¡Perdiste!</h1> <h3>La maquina eligio papel y tu piedra.</h3>"); //Usuario  perdio
+                        } else {
+                            if (jugadamaquina == 'tijera') {
+                                alert("¡Ganaste! La maquina eligio tijera y tu piedra.");
+                                //document.write("<h1>¡Ganaste!</h1> <h3>La maquina eligio tijera y tu piedra.</h3>"); // Usuario Gano
+                            } else {
+                                if (jugadamaquina == 'piedra') {
+                                    alert("¡Empate! Ambos eligieron piedra.");
+                                    //document.write("<h1>¡Empate!</h1> <h3>Ambos eligieron piedra.</h3>"); // Empate
+                                }
+                            }
+                        }
+                    }
+    
+                    if (jugadahumano == 'papel') {//el usuario eligio papel 
+                        if (jugadamaquina == 'tijera') {
+                            alert("¡Perdiste! La maquina eligio tijera y tu papel.")
+                            //document.write("<h1>¡Perdiste!</h1> <h3>La maquina eligio tijera y tu papel.</h3>"); //Usuario  perdio
+    
+                        } else {
+                            if (jugadamaquina == 'piedra') {
+                                alert("¡Ganaste! La maquina eligio piedra y tu papel.")
+                                //document.write("<h1>¡Ganaste!</h1> <h3>La maquina eligio piedra y tu papel.</h3>"); // Usuario Gano
+    
+                            } else {
+                                if (jugadamaquina == 'papel') {
+                                    alert("¡Empate! Ambos eligieron papel.")
+                                    //document.write("<h1>¡Empate!</h1> <h3>Ambos eligieron papel.</h3>"); // Empate
+                                }
+                            }
+                        }
+                    }
+    
+                    if (jugadahumano == 'tijera') {//el usuario eligio tijera 
+                        if (jugadamaquina == 'papel') {
+                            alert("¡Ganaste! La maquina eligio papel y tu tijera.")
+                            //document.write("<h1>¡Ganaste!</h1> <h3>La maquina eligio papel y tu tijera.</h3>"); // Usuario Gano
+    
+                        } else {
+                            if (jugadamaquina == 'piedra') {
+                                alert("¡Perdiste! La maquina eligio piedra y tu tijera.")
+                                //document.write("<h1>¡Perdiste!</h1> <h3>La maquina eligio piedra y tu tijera.</h3>"); //Usuario  perdio
+                            } else {
+                                if (jugadamaquina == 'tijera') {
+                                    alert("¡Empate! Ambos eligieron tijera.")
+                                    //document.write("<h1>¡Empate!</h1> <h3>Ambos eligieron tijera.</h3>"); // Empate
+                                }
+                            }
+                        }
+                    }
+    
+                }
+    
+            }
+    
+        </script>
+    </body>
+
+</html>
